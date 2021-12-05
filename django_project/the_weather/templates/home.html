@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Home page{% endblock %}
+{% block content_block %}
+     {%if messages %}
+
+       {% for message in messages %}
+           <div class="alert alert-success">
+
+                <strong>Success!</strong> {{message}}
+
+          </div>
+       {% endfor%}
+
+    {% endif %}
+
+    {% if cities %}
+        <table class="table table-hover">
+             {% for city in cities %}
+              <tr>
+                    <td > {{ city.city_name }} </td>
+                <td>
+
+                    <a href="{% url 'delete_city' city.id %}" class="btn btn-danger" role="button">Delete </a>
+                </td>
+              </tr>
+              {% endfor %}
+
+        </table>
+                <a href="{% url 'choose'  %}" class="btn btn-primary" role="button">Filter</a>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <!-- Bootstrap 5 CSS -->
+    <link href="{% static 'css/demo.bootstrap.min.css' %}" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+    <title>Choose the right weather!</title>
+
+<style>
+  select {width: 20em;}
+</style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Choose the right weather!</h1>
+      <div class="row">
+        <div class="col ">
+            <form mehtod="post" action="{% url 'filter_cities' %}">
+
+                <select name="field1" id="field1"  onchange="console.log(Array.from(this.selectedOptions).map(x=>x.value??x.text))" >
+                  <option value="Rained">Rained</option>
+                  <option value="Sunny">Sunny</option>
+                  <option value="Cloudly">Cloudly</option>
+                  <option value="Partly Cloudy">Party Coudly</option>
+                  <option value="Snow Showers">Snow Showers</option>
+                  <option value="Showers">Showers</option>
+                  <option value="Light Rain">Light Rain</option>
+                  <option value="Few Snow Showers">Few Snow Showers</option>
+                  <option value="Mostly Sunny">Mostly Sunny</option>
+                </select>
+                  <hr/>
+                <br/><br/><br/>
+                <button class="btn btn-success" type="submit">Submit</button>
+            </form>
+        </div>
+      </div>
+    </div>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+    <script src="{% static 'js/multiselect-dropdown.js' %}" ></script>
+  </body>
+</html>
